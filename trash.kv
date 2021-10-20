@@ -1,0 +1,1027 @@
+WindowManager:
+    Welcome:
+    LoginResident:
+    RegisterResident:
+    LoginStaff:
+    Address:
+    Phone:
+    SettingsScreen:
+    Home:
+
+<Welcome>:
+
+    name: "welcome"
+    BoxLayout:
+        orientation: "vertical"
+        spacing: -60
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 1)
+            Image:
+                source: 'header.png'   
+                size_hint: (1, 3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.5)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Image:
+                source: 'logo3.png'
+                allow_stretch: True
+            Label:
+                text: 'Welcome to E - Trash'
+                color: 'black'
+                bold: 'True'
+                font_size: 18
+                size_hint: (1, 0.3) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.6)
+            Button:
+                text: 'RESIDENT'
+                on_press: root.manager.current = 'home'
+                size_hint: (0.8, 0.45)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: 'OR'
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.5)
+            Button:
+                on_press: root.manager.current = 'loginstaff'
+                text: 'STAFF'
+                size_hint: (0.8, 0.45)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'red'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+
+<LoginResident>:
+    name: "loginresident"
+    uname: username
+    pwd: password
+    lblerror: greeting
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: -60
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            Image:
+                source: 'header.png'   
+                size_hint: (1, 3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.8, .6)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2
+            Image:
+                source: 'logo3.png'
+                allow_stretch: True
+                size_hint: (1, 2) 
+            Label:
+                text: 'Welcome to E - Trash'
+                color: 'black'
+                bold: 'True'
+                font_size: 18
+                size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .7)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1) 
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            
+            Label:
+                text: ''
+                id: greeting
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.85)
+            Label:
+                text: 'Username'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: username
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Password'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle' 
+            TextInput:
+                color: 'black'
+                id: password
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                on_press: root.login()
+                text: 'Login'
+                size_hint: (0.75, 1.4)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)    
+            Label:
+                text: "Don't have an account? Register"
+                color: 'black'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 1)
+            Button:
+                text: "here."
+                color: 'blue'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 0.6)
+                background_color: 0,0,0,0
+                on_press: root.open()
+                   
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                text: "BACK"
+                color: 'black'
+                bold: 'True'
+                font_size: 13
+                size_hint: (1, 0.6)
+                background_color: 0,0,0,0
+                on_press: root.welcome()
+                        
+<RegisterResident>:
+    name: "registerresident"
+    uname: username
+    pwd: password
+    fulln: fname
+    lblerror: greeting
+    lblsuccess: greet
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: -60
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, .8)
+            Image:
+                source: 'header11.png'   
+                size_hint: (1, 3)
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.4)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.8, .8)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+            Image:
+                source: 'logo3.png'
+                allow_stretch: True
+                size_hint: (1, 2) 
+            Label:
+                text: 'Create New Account'
+                color: 'black'
+                bold: 'True'
+                font_size: 17
+                size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .7)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                id: greet
+                color: 'blue'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1) 
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            
+            Label:
+                text: ''
+                id: greeting
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.85)
+            Label:
+                text: 'Name'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: fname
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Username'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: username
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Password'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle' 
+            TextInput:
+                color: 'black'
+                id: password
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                on_press: root.register()
+                text: 'Register'
+                size_hint: (0.75, 1.6)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)    
+            Label:
+                text: "Already have an account? Login"
+                color: 'black'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 1)
+            Button:
+                text: "here."
+                color: 'blue'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 0.6)
+                background_color: 0,0,0,0
+                on_press: root.open()   
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .8)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+
+<LoginStaff>:
+    name: "loginstaff"
+    uname: username
+    pwd: password
+    lblerror: greeting
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: -60
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1)
+            Image:
+                source: 'header.png'   
+                size_hint: (1, 3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.8, .6)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2
+            Image:
+                source: 'logo3.png'
+                allow_stretch: True
+                size_hint: (1, 2) 
+            Label:
+                text: 'Welcome to E - Trash'
+                color: 'black'
+                bold: 'True'
+                font_size: 18
+                size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .7)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1) 
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            
+            Label:
+                text: ''
+                id: greeting
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.85)
+            Label:
+                text: 'Username'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: username
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Password'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle' 
+            TextInput:
+                color: 'black'
+                id: password
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                on_press: root.login()
+                text: 'Register'
+                size_hint: (0.75, 1.4)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)    
+            Label:
+                text: ""
+                color: 'black'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 1)
+               
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                text: "BACK"
+                color: 'black'
+                bold: 'True'
+                font_size: 13
+                size_hint: (1, 0.6)
+                background_color: 0,0,0,0
+                on_press: root.welcome()
+
+<Address>:
+    name: "address"
+    no: number
+    st: street
+    brgy: barangay
+    lblerror: greet
+    BoxLayout:
+        orientation: "vertical"
+        spacing: -60
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 1)
+            Image:
+                source: 'header.png'   
+                size_hint: (1, 3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .85)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Image:
+                source: 'logogo.png'
+                size_hint: (1, 3) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .5)
+            Label:
+                text: 'Add your address'
+                color: 'black'
+                bold: 'True'
+                font_size: 18
+                size_hint: (1, 0.3) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.5)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.5)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 1
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.5)
+            Label:
+                text: ''
+                id: greet
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.5)
+            Label:
+                text: 'House & Building No.'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: number
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Street'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: street
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Barangay'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: barangay
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.5)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.1)  
+            Button:
+                on_press: root.address()
+                text: 'Save & next'
+                size_hint: (0.8, 1.4)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .8)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+
+<Phone>:
+    name: "phone"
+    lblerror: greet
+    no: number
+    BoxLayout:
+        orientation: "vertical"
+        spacing: -60
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 1.3)
+            Image:
+                source: 'header.png'   
+                size_hint: (1, 3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .85)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Image:
+                source: 'logogo.png'
+                size_hint: (1, 3) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+            Label:
+                text: 'Add contact number'
+                color: 'black'
+                bold: 'True'
+                font_size: 18
+                size_hint: (1, 0.3) 
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.2)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .7)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -1
+            Label:
+                text: ''
+
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .8)
+            Label:
+                text: ''
+                id: greet
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 2)
+            Label:
+                text: 'Contact Number'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: number
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.4)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .8)  
+            Button:
+               
+                text: 'Verify'
+                size_hint: (0.8, 1.2)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'red'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.2)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .65)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.3)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 1.2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -1
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 2)
+            Label:
+                text: ''
+                id: greet1
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .8)
+            Label:
+                text: 'Enter Code'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: code
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.4)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .8)  
+            Button:
+                on_press: root.phone()
+                text: 'Confirm'
+                size_hint: (0.8, 1.2)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.2)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .85)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1.3)
+
+
+<Home>:
+    name: "home"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout: 
+            spacing: -10
+            orientation: "horizontal"
+            background_color: 'black'
+            Button:
+                text: 'orr'
+                on_press: root.manager.current = 'home'
+                size_hint: (1, .5)
+                pos_hint: {'center_x': 1, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+        BoxLayout: 
+            spacing: -10
+            orientation: "horizontal"
+            background_color: 'black'
+            Button:
+                text: 'orr'
+                on_press: root.manager.current = 'home'
+                size_hint: (1, .5)
+                pos_hint: {'center_x': 1, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, .7)
+
+<SettingsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: -60
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (1, .8)
+            Image:
+                source: 'header11.png'   
+                size_hint: (1, 3)
+            Label:
+                text: 'seettings'
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.4)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.8, .8)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+            Image:
+                source: 'logo3.png'
+                allow_stretch: True
+                size_hint: (1, 2) 
+            Label:
+                text: 'Create New Account'
+                color: 'black'
+                bold: 'True'
+                font_size: 17
+                size_hint: (1, 1) 
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.7)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .7)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1) 
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, 2)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            
+            Label:
+                text: ''
+                color: 'red'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 0.85)
+            Label:
+                text: 'Name'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                text: 'Enter full name'
+                id: 'username'
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Username'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle'
+            TextInput:
+                color: 'black'
+                id: 'username'
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: 'Password'
+                color: 'black'
+                bold: 'True'
+                text_size: self.size
+                halign: 'left'
+                valign: 'middle' 
+            TextInput:
+                color: 'black'
+                id: 'username'
+                font_size: 12
+                bold: 'True'
+                size_hint: (1, 1.3)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                multiline: 'False'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+            Button:
+                on_press: root.manager.current = 'settings'
+                text: 'Login'
+                size_hint: (0.75, 1.6)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                background_color: 'blue'
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)    
+            Label:
+                text: "Don't have an account? Register"
+                color: 'black'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 1)
+            Label:
+                text: "here."
+                color: 'blue'
+                bold: 'True'
+                font_size: 10
+                size_hint: (1, 0.6)   
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: (0.6, .8)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: -2  
+            Label:
+                text: ''
+                color: 'black'
+                bold: 'True'
+                font_size: 14
+                size_hint: (1, 1)
+
+
+
+ 
